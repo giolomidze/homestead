@@ -20,3 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		config.vm.provision "shell", path: afterScriptPath
 	end
 end
+
+Vagrant::Config.run do |config|
+  config.vm.network :bridged, :bridge => "en0: Ethernet",
+  ip: "192.168.0.225"
+end
